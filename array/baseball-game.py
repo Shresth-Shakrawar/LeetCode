@@ -3,11 +3,9 @@ class Solution:
         stack=[]
         for op in operations:
             if op=="+":
-                element = stack[-1] + stack[-2]
-                stack.append(element)
-            elif op =="D":
-                element = 2 * int(stack[-1])
-                stack.append(element)
+                stack.append(stack[-1] + stack[-2])
+            elif op =="D": 
+                stack.append(2 * int(stack[-1]))
             elif op=="C":
                 stack.pop()
             else:
