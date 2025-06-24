@@ -1,22 +1,20 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
 
-        charCount = {} # Count of Characters In Windows
-        max_length = 0
-
-        maxfreq = 0
-        l = 0
+        charSet = set(s)
+        maxLength = 0
         
-        for r in range(len(s)):
-            charCount[s[r]] = charCount.get(s[r],0) + 1
-            maxfreq = max(maxfreq,charCount[s[r]])
-            
-            while (r-l) + 1 - maxfreq > k : # length - maxfreq gives Number of other characters which are not most frequent
-                charCount[s[l]] -=1
-                l+=1
-            
-            max_length = max((r-l) + 1,max_length)
+        for c in charSet:
+            count = 0
+            l = 0
+            for r in range(len(s)):
+                if s[r] == c:
+                    count += 1
+                while (r - l) + 1 - count > k : # length of window - count of char > maximum replacements allowed
+                    if s[l] == c:
+                        count -= 1
+                    l+=1
+                maxLength =  max(maxLength,(r-l+1))
 
-            
-        return max_length
+        return maxLength 
 
