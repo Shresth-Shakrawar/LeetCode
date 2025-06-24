@@ -2,7 +2,7 @@ class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         suma=0
         l=0
-        minL = 100001
+        minL = float("inf")
         for r in range(len(nums)):
             suma = suma + nums[r]
             #print(f"start {l=} {r=} {suma=}")
@@ -11,7 +11,7 @@ class Solution:
                 suma = suma - nums[l]
                 l += 1
             #print(f"after {l=} {r=} {suma=} {minL=}")
-        if minL != 100001:
+        if minL != float("inf"):
             return minL
         else:
             return 0
