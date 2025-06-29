@@ -13,6 +13,6 @@ class Solution:
                 r = mid - 1
             else:
                 l = mid + 1
-            print(f"for {mid=} {hours=} {res=}")
+            #print(f"for {mid=} {hours=} {res=}")
 
         return res
