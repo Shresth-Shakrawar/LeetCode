@@ -7,6 +7,9 @@ class Solution:
             if abs(arr[r+1] - x) < abs(arr[l] - x) :
                 l += 1
                 r += 1
+            elif arr[r+1] == arr[l]:
+                l +=1
+                r +=1
             else:
                 break
         return arr[l:r+1]
