@@ -1,9 +1,15 @@
+from typing import List, Dict
+
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
-        n = len(nums)
-        res = 0
-        for i in range(n):
-            for j in range(n):
-                if i!=j  and nums[i] == nums[j]:
-                    res+= 1
-        return res//2
+        count: Dict[int, int] = {}
+        good_pairs = 0
+
+        for num in nums:
+            if num in count:
+                good_pairs += count[num]
+                count[num] += 1
+            else:
+                count[num] = 1
+
+        return good_pairs
