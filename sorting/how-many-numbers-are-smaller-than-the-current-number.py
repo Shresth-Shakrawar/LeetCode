@@ -1,9 +1,9 @@
 class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
-        countList=[0]*(101)
-        for num in nums:
-            countList[num]+=1
-        output=[]
-        for num in nums:
-            output.append(sum(countList[:num]))
-        return output
+        t = sorted(nums)
+        dic = {}
+        for i, num in enumerate(t) :
+            if num not in dic:
+                dic[num] = i
+        
+        return [dic[x] for x in nums]
