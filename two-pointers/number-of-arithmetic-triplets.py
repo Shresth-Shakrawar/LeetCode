@@ -1,9 +1,10 @@
 class Solution:
     def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
-        ans = 0
-        for i in range(len(nums)):
-            for j in range(len(nums)):
-                for k in range(len(nums)):
-                    if nums[j] - nums[i] == nums[k] - nums[j] == diff:
-                        ans += 1
-        return ans
+        num_set = set(nums)
+        result = 0
+        
+        for num in nums:
+            if (num + diff) in num_set and (num + 2 * diff) in num_set:
+                result += 1
+
+        return result
