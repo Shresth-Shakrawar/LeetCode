@@ -1,0 +1,20 @@
+class Solution:
+    def checkSubTree(self, root, subRoot):
+        if not root and not subRoot:
+            return True
+        if not root or not subRoot:
+            return False
+        if root.val != subRoot.val:
+            return False
+        return (self.checkSubTree(root.left, subRoot.left) and
+                self.checkSubTree(root.right, subRoot.right))
+    def search(self, root, subRoot):
+        if not root:
+            return False
+        if root.val == subRoot.val and self.checkSubTree(root, subRoot):
+            return True
+        return self.search(root.left, subRoot) or self.search(root.right, subRoot)
+    def isSubtree(self, root, subRoot):
+        if not root:
+            return False
+        return self.search(root, subRoot)
