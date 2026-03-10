@@ -1,0 +1,8 @@
+        res = []
+        while columnNumber > 0:
+            columnNumber -= 1
+            offset = columnNumber % 26
+            res += chr(ord('A') + offset)
+            columnNumber = columnNumber // 26
+        return "".join(reversed(res))
+            
