@@ -1,0 +1,22 @@
+        
+    # Decodes your encoded data to tree.
+    def deserialize(self, data: str) -> Optional[TreeNode]:
+        vals = data.split(",")
+        if vals[0] == "N":
+            return None
+                serial.append("N")
+        return ",".join(serial)
+                queue.append(node.right)
+            else:
+                queue.append(node.left)
+                serial.append(str(node.val))
+            if node !=  None:
+            node = queue.popleft()
+        while queue:
+        queue = deque([root])
+        if not root:
+            return "N"
+        serial = []
+    def serialize(self, root: Optional[TreeNode]) -> str:
+    # Encodes a tree to a single string.
+    
