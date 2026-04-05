@@ -1,0 +1,25 @@
+class MedianFinder:
+    def __init__(self):
+        self.minHeap = []   # upper half, min at top
+        self.maxHeap = []   # lower half, max at top
+        heapify(self.minHeap)
+        heapify_max(self.maxHeap)
+    def addNum(self, num: int) -> None:
+        # Always push to maxHeap first
+        heappush_max(self.maxHeap, num)
+        # Maintain ordering: maxHeap top must <= minHeap top
+        if self.minHeap and self.maxHeap[0] > self.minHeap[0]:
+            val = heappop_max(self.maxHeap)
+            heappush(self.minHeap, val)
+        # Balance sizes: maxHeap can have at most 1 extra
+        if len(self.maxHeap) > len(self.minHeap) + 1:
+            val = heappop_max(self.maxHeap)
+            heappush(self.minHeap, val)
+        elif len(self.minHeap) > len(self.maxHeap):
+            val = heappop(self.minHeap)
+            heappush_max(self.maxHeap, val)
+    def findMedian(self) -> float:
+        if len(self.maxHeap) == len(self.minHeap):
+            return (self.maxHeap[0] + self.minHeap[0]) / 2.0
+        else:
+            return float(self.maxHeap[0])  # maxHeap always has the extra
