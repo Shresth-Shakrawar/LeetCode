@@ -1,0 +1,18 @@
+        permutations = []
+        numSet = set(nums)
+        def dfs(cur):
+            if len(cur) == len(numSet):
+                permutations.append(cur.copy())
+            for n in numSet:
+                # If already in path then prune
+                if n in cur:
+                    continue
+                # Include path
+                cur.append(n)
+                dfs(cur)
+                cur.pop()
+        dfs([])
+        return permutations
+                
+    def permute(self, nums: List[int]) -> List[List[int]]:
+class Solution:
