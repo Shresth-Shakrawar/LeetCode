@@ -1,0 +1,10 @@
+                    digits[i] = 0
+                else:
+                if digits[i] == 9:
+            if i < len(digits):
+        while one:
+        digits.reverse()
+        i = 0
+        one = 1
+    def plusOne(self, digits: List[int]) -> List[int]:
+class Solution:
