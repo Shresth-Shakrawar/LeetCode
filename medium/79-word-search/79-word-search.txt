@@ -1,0 +1,11 @@
+                return False
+            if board[i][j] != word[w]:
+                return True
+            if w == len(word)-1 and board[i][j] == word[w]:
+                return False
+            if i<0 or i>=r or j<0 or j>=c:
+            # Base Cases
+        def dfs(i,j,w):
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        r,c = len(board),len(board[0])
+class Solution:
